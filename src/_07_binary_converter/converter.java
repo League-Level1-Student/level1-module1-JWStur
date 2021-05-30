@@ -1,15 +1,29 @@
 package _07_binary_converter;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class converter {
-	JFrame frame = new JFrame();
-	JPanel panel = new JPanel();
-	JTextField field = new JTextField();
+public class converter implements ActionListener {
 	
+	void setUp() {
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		JButton button = new JButton("Convert");
+		JTextField text = new JTextField(20);
+		frame.add(panel);
+		panel.add(button);
+		panel.add(text);
+		button.addActionListener(this);
+		frame.pack();
+		
+		
+	}
 	
 	
 	String convert(String input) {
@@ -31,7 +45,13 @@ public class converter {
 	        return "-";
 	    }
 	}
-
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		String answer = this.toString();
+		convert(answer);
+		
+	}
+	
 
 
 }
