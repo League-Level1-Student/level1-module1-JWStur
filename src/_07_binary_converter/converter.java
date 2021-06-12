@@ -5,23 +5,26 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class converter implements ActionListener {
-	
-	void setUp() {
-		JFrame frame = new JFrame();
+JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		JButton button = new JButton("Convert");
 		JTextField text = new JTextField(20);
+		JLabel label = new JLabel();
+	
+	void setUp() {
 		frame.add(panel);
 		panel.add(button);
-		panel.add(text);
+		panel.add(text); 
+		panel.add(label);
 		button.addActionListener(this);
 		frame.pack();
-		
+		frame.setVisible(true);
 		
 	}
 	
@@ -47,9 +50,10 @@ public class converter implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		String answer = this.toString();
-		convert(answer);
-		
+		String answer = text.getText();
+		answer = convert(answer);
+		label.setText(answer);
+		frame.pack();
 	}
 	
 

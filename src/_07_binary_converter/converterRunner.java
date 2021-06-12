@@ -1,7 +1,8 @@
 package _07_binary_converter;
 
 public class converterRunner {
-	public void main(String[] args) {
-		convert answer = new convert.setUp();
-	}
+	public static void main(String[] args) {
+		converter answer = new converter();
+		answer.setUp();
+	} 
 }
